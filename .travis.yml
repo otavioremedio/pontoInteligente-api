@@ -5,7 +5,7 @@ jdk:
 before_install:
   - chmod +x mvnw
   - mysql -u root -e "CREATE DATABASE ponto_inteligente;"
-  - mysql -u root -e "CREATE USER 'travis'@'localhost' identified by '';"  
+  #- mysql -u root -e "CREATE USER 'travis'@'localhost' identified by '';"  
   
   
 test:
