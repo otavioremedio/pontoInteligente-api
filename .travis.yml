@@ -4,6 +4,13 @@ jdk:
   
 before_install:
   - chmod +x mvnw
+  - mysql -e 'CREATE DATABASE ponto_inteligente;'
+  
+test:
+  adapter: mysql2
+  database: myapp_test
+  username: travis
+  encoding: utf8
   
 dist: 
   precise
