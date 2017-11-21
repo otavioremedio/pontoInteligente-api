@@ -1,7 +1,5 @@
 package com.otavio.pontointeligente.api.entities;
 
-import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
