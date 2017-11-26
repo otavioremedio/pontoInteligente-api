@@ -40,6 +40,9 @@ alter table `funcionario`
 alter table `lancamento`
 	add primary key (`id`);
 	
+alter table `empresa`
+	add primary key (`id`);
+	
 --auto increment
 
 alter table `empresa`
