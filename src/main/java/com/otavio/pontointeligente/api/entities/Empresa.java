@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 
@@ -74,12 +76,12 @@ public class Empresa implements Serializable {
 	}
 
 	@Column(name= "data_atualizacao", nullable=false)
-	public Date getDataAtualização() {
+	public Date getDataAtualizacao() {
 		return dataAtualizacao;
 	}
 
-	public void setDataAtualização(Date dataAtualização) {
-		this.dataAtualizacao = dataAtualização;
+	public void setDataAtualizacao(Date dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
 	}
 
 	//notação um para muitos
@@ -96,11 +98,13 @@ public class Empresa implements Serializable {
 	}
 	
 	//metodo que executa antes do update
+	@PreUpdate
 	public void preUpdate() {
 		dataAtualizacao = new Date();
 	}
 	
 	//metodo que executa antes do insert
+	@PrePersist
 	public void prePersist() {
 		final Date atual = new Date();
 		dataCriacao = atual;
@@ -110,7 +114,7 @@ public class Empresa implements Serializable {
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", dataCriacao=" + dataCriacao
-				+ ", dataAtualização=" + dataAtualizacao + ", funcionarios=" + funcionarios + "]";
+				+ ", dataAtualizacao=" + dataAtualizacao + ", funcionarios=" + funcionarios + "]";
 	}
 	
 }

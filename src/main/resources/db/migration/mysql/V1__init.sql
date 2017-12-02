@@ -61,3 +61,4 @@ add constraint foreign key (`empresa_id`) references `empresa`(`id`);
 
 alter table `lancamento`
 add constraint foreign key (`funcionario_id`) references `funcionario`(`id`);
+
