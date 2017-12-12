@@ -29,7 +29,7 @@ import com.otavio.pontointeligente.api.enums.PerfilEnum;
 public class Funcionario implements Serializable {
 
 	private static final long serialVersionUID = 2458477318074842571L;
-	
+
 	private Long id;
 	private String nome;
 	private String email;
@@ -97,7 +97,7 @@ public class Funcionario implements Serializable {
 	public BigDecimal getValorHora() {
 		return valorHora;
 	}
-	
+
 	//notação para que o jpa ignore o método, não tem a ver com o banco
 	@Transient
 	public Optional<BigDecimal> getValorHoraOpt(){
@@ -112,7 +112,7 @@ public class Funcionario implements Serializable {
 	public Float getQtdHorasTrabalhoDia() {
 		return qtdHorasTrabalhoDia;
 	}
-	
+
 	@Transient
 	public Optional<Float> getQtdHorasTrabalhoDiaOpt(){
 		return Optional.ofNullable(qtdHorasTrabalhoDia);
@@ -125,6 +125,11 @@ public class Funcionario implements Serializable {
 	@Column(name="qtd_horas_almoco", nullable=true)
 	public Float getQtdHorasAlmoco() {
 		return qtdHorasAlmoco;
+	}
+
+	@Transient
+	public Optional<Float> getQtdHorasAlmocoOpt() {
+		return Optional.ofNullable(qtdHorasAlmoco);
 	}
 
 	public void setQtdHorasAlmoco(Float qtdHorasAlmoco) {
@@ -180,13 +185,13 @@ public class Funcionario implements Serializable {
 	public void setLancamentos(List<Lancamento> lancamentos) {
 		this.lancamentos = lancamentos;
 	}
-	
+
 	//metodo que executa antes do update
 	@PreUpdate
 	public void preUpdate() {
 		dataAtualizacao = new Date();
 	}
-	
+
 	//metodo que executa antes do insert
 	@PrePersist
 	public void prePersist() {
@@ -202,6 +207,5 @@ public class Funcionario implements Serializable {
 				+ qtdHorasAlmoco + ", perfil=" + perfil + ", dataCriacao=" + dataCriacao + ", dataAtualizacao="
 				+ dataAtualizacao + ", empresa=" + empresa + ", lancamentos=" + lancamentos + "]";
 	}
-	
+
 }
-    
