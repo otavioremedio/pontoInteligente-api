@@ -89,6 +89,7 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
+	//adicionada uma restrição simulando um admin
 	@WithMockUser(username = "admin@admin.com", roles = {"ADMIN"})
 	public void testRemoverLancamento() throws Exception {
 		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
